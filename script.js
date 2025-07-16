@@ -28,6 +28,15 @@ class MyHeart {
             "Những lúc em buồn, anh chỉ muốn ôm em thật chặt"
         ];
         
+        // Secret messages
+        this.secretMessages = [
+            "Em là ngôi sao sáng nhất trong vũ trụ của anh",
+            "Anh nhớ em rất nhiều, em có biết không?",
+            "Em là lý do anh mỉm cười mỗi ngày",
+            "Tình yêu anh dành cho em sẽ không bao giờ thay đổi",
+            "Anh muốn được nắm tay em đi hết quãng đời còn lại"
+        ];
+        
         // Event listeners
         this.sorryBtn.addEventListener('click', () => this.saySorry());
         this.promiseBtn.addEventListener('click', () => this.promise());
@@ -45,6 +54,9 @@ class MyHeart {
         
         // Set up love reasons interaction
         this.setupLoveReasonsInteraction();
+        
+        // Set up secret star
+        this.setupSecretStar();
         
         // Start memory cycle
         this.startMemoryCycle();
@@ -489,6 +501,41 @@ class MyHeart {
                 document.querySelector('.love-reason-items').style.animationPlayState = 'running';
             });
         }
+    }
+
+    // Set up secret star
+    setupSecretStar() {
+        const secretStar = document.getElementById('secret-star');
+        const secretMessagePopup = document.getElementById('secret-message-popup');
+        const closeSecret = document.querySelector('.close-secret');
+        const secretMessage = document.getElementById('secret-message');
+        
+        // Show popup when clicking star
+        secretStar.addEventListener('click', () => {
+            // Choose random secret message
+            const randomIndex = Math.floor(Math.random() * this.secretMessages.length);
+            secretMessage.textContent = this.secretMessages[randomIndex];
+            
+            // Show popup
+            secretMessagePopup.style.display = 'block';
+            
+            // Add name to message if available
+            if (this.personName) {
+                secretMessage.textContent = secretMessage.textContent.replace("em", this.personName);
+            }
+        });
+        
+        // Close popup when clicking X
+        closeSecret.addEventListener('click', () => {
+            secretMessagePopup.style.display = 'none';
+        });
+        
+        // Close popup when clicking outside
+        secretMessagePopup.addEventListener('click', (event) => {
+            if (event.target === secretMessagePopup) {
+                secretMessagePopup.style.display = 'none';
+            }
+        });
     }
 }
 
