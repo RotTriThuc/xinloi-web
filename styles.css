@@ -22,6 +22,7 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
+    background-color: #1a1a2e; /* Đảm bảo màu nền chính xác */
 }
 
 /* Hiệu ứng bầu trời đêm có ngôi sao */
@@ -33,112 +34,12 @@ body {
     overflow: hidden;
 }
 
-/* Ngôi sao nhỏ */
-#stars-container:before {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    box-shadow: 
-        1343px 601px #FFF,
-        979px 263px #FFF,
-        1084px 1539px #FFF,
-        770px 49px #FFF,
-        1678px 606px #FFF,
-        1350px 442px #FFF,
-        1278px 83px #FFF,
-        1773px 1255px #FFF,
-        1430px 1241px #FFF,
-        1764px 1217px #FFF,
-        989px 1209px #FFF,
-        1686px 1749px #FFF,
-        406px 1749px #FFF,
-        1597px 1669px #FFF,
-        166px 457px #FFF,
-        115px 1681px #FFF,
-        1679px 1222px #FFF,
-        1025px 636px #FFF,
-        1475px 248px #FFF,
-        786px 1585px #FFF,
-        1897px 513px #FFF,
-        1266px 1485px #FFF,
-        1122px 1725px #FFF,
-        606px 195px #FFF,
-        1581px 239px #FFF,
-        1816px 428px #FFF,
-        800px 1507px #FFF,
-        1392px 1226px #FFF,
-        1244px 846px #FFF,
-        1252px 1259px #FFF,
-        621px 1634px #FFF,
-        73px 927px #FFF,
-        454px 1862px #FFF,
-        1120px 1472px #FFF,
-        1008px 1010px #FFF,
-        1498px 1778px #FFF,
-        1084px 1714px #FFF,
-        644px 901px #FFF,
-        472px 1607px #FFF,
-        1176px 479px #FFF,
-        1088px 456px #FFF,
-        80px 1180px #FFF,
-        268px 1424px #FFF,
-        1694px 416px #FFF,
-        1471px 303px #FFF,
-        1552px 1160px #FFF,
-        1555px 1454px #FFF,
-        181px 1501px #FFF,
-        1139px 410px #FFF,
-        20px 1245px #FFF;
-    animation: animStar 50s linear infinite;
-}
-
-/* Ngôi sao trung bình */
-#stars-container:after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow: 
-        97px 1368px #FFF,
-        1796px 1988px #FFF,
-        1816px 1580px #FFF,
-        1008px 1775px #FFF,
-        1562px 434px #FFF,
-        1231px 538px #FFF,
-        1147px 351px #FFF,
-        1599px 98px #FFF,
-        1054px 659px #FFF,
-        1441px 1028px #FFF,
-        1939px 1231px #FFF,
-        1350px 1780px #FFF,
-        10px 843px #FFF,
-        1915px 1872px #FFF,
-        756px 1674px #FFF,
-        376px 1161px #FFF,
-        1128px 1260px #FFF,
-        1357px 425px #FFF,
-        962px 586px #FFF,
-        500px 300px #FFF,
-        139px 893px #FFF,
-        470px 623px #FFF,
-        1695px 586px #FFF,
-        307px 677px #FFF,
-        1419px 958px #FFF,
-        1590px 821px #FFF,
-        1086px 1432px #FFF,
-        1574px 1126px #FFF;
-    animation: animStar 100s linear infinite;
-}
-
-/* Ngôi sao sáng rực */
+/* Thêm các điểm sáng ngôi sao */
 .star {
     position: absolute;
-    background-color: #FFF;
+    background-color: white;
     border-radius: 50%;
-    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF;
+    animation: twinkle 3s infinite alternate;
 }
 
 .star-1 {
@@ -146,7 +47,7 @@ body {
     height: 3px;
     top: 20%;
     left: 15%;
-    animation: twinkle 3s infinite;
+    box-shadow: 0 0 10px white, 0 0 20px white;
 }
 
 .star-2 {
@@ -154,7 +55,8 @@ body {
     height: 4px;
     top: 30%;
     left: 50%;
-    animation: twinkle 4s infinite 0.3s;
+    box-shadow: 0 0 10px white, 0 0 20px white;
+    animation-delay: 0.3s;
 }
 
 .star-3 {
@@ -162,7 +64,8 @@ body {
     height: 2px;
     top: 40%;
     left: 80%;
-    animation: twinkle 5s infinite 0.6s;
+    box-shadow: 0 0 10px white, 0 0 20px white;
+    animation-delay: 0.6s;
 }
 
 .star-4 {
@@ -170,7 +73,8 @@ body {
     height: 3px;
     top: 60%;
     left: 30%;
-    animation: twinkle 4s infinite 0.9s;
+    box-shadow: 0 0 10px white, 0 0 20px white;
+    animation-delay: 0.9s;
 }
 
 .star-5 {
@@ -178,22 +82,33 @@ body {
     height: 4px;
     top: 70%;
     left: 65%;
-    animation: twinkle 3s infinite 1.2s;
+    box-shadow: 0 0 10px white, 0 0 20px white;
+    animation-delay: 1.2s;
 }
 
-@keyframes animStar {
-    from {
-        transform: translateY(0px);
-    }
-    to {
-        transform: translateY(-2000px);
-    }
+/* Thêm nhiều ngôi sao nhỏ hơn */
+#stars-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 10% 10%, white 100%, transparent),
+        radial-gradient(1px 1px at 20% 20%, white 100%, transparent),
+        radial-gradient(1px 1px at 30% 30%, white 100%, transparent),
+        radial-gradient(1px 1px at 40% 40%, white 100%, transparent),
+        radial-gradient(1px 1px at 50% 50%, white 100%, transparent),
+        radial-gradient(1px 1px at 60% 60%, white 100%, transparent),
+        radial-gradient(1px 1px at 70% 70%, white 100%, transparent),
+        radial-gradient(1px 1px at 80% 80%, white 100%, transparent),
+        radial-gradient(1px 1px at 90% 90%, white 100%, transparent);
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.3; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.2); }
-    100% { opacity: 0.3; transform: scale(0.8); }
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
 }
 
 /* CSS cho các ngôi sao đã được thay thế bằng phương pháp mới */
