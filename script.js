@@ -40,6 +40,9 @@ class MyHeart {
         // Set up scroll animations
         this.setupScrollAnimations();
         
+        // Set up promises interaction
+        this.setupPromisesInteraction();
+        
         // Start memory cycle
         this.startMemoryCycle();
     }
@@ -57,6 +60,7 @@ class MyHeart {
         // Get all elements we want to animate on scroll
         const timelineItems = document.querySelectorAll('.timeline-content');
         const memoryItems = document.querySelectorAll('.memory-item');
+        const promiseBoxes = document.querySelectorAll('.promise-box');
         const poemSection = document.querySelector('.poem-section');
         const signature = document.querySelector('.signature');
         
@@ -91,9 +95,53 @@ class MyHeart {
             }, 500 + Array.from(memoryItems).indexOf(item) * 300);
         });
         
+        // Observe all promise boxes
+        promiseBoxes.forEach(box => {
+            observer.observe(box);
+            // Make promise boxes visible with staggered delay
+            setTimeout(() => {
+                box.classList.add('animate');
+            }, 500 + Array.from(promiseBoxes).indexOf(box) * 200);
+        });
+        
         // Observe poem section and signature
         if (poemSection) observer.observe(poemSection);
         if (signature) observer.observe(signature);
+    }
+    
+    // Set up promises interaction
+    setupPromisesInteraction() {
+        const promiseBoxes = document.querySelectorAll('.promise-box');
+        const promiseText = document.getElementById('promise-text');
+        const promiseDisplay = document.querySelector('.promise-display');
+        
+        promiseBoxes.forEach(box => {
+            box.addEventListener('click', () => {
+                // Remove "open" class from all boxes
+                promiseBoxes.forEach(b => b.classList.remove('open'));
+                
+                // Add "open" class to the clicked box
+                box.classList.add('open');
+                
+                // Get the promise text from data attribute
+                const promise = box.getAttribute('data-promise');
+                
+                // Update the promise display
+                promiseText.style.opacity = '0';
+                promiseDisplay.classList.remove('reveal');
+                
+                setTimeout(() => {
+                    promiseText.textContent = promise;
+                    promiseText.style.opacity = '1';
+                    promiseDisplay.classList.add('reveal');
+                }, 300);
+                
+                // Reset the open state after a delay
+                setTimeout(() => {
+                    box.classList.remove('open');
+                }, 2000);
+            });
+        });
     }
     
     // Set up song selection options
@@ -355,7 +403,7 @@ class MyHeart {
             `${this.personName} ơi, anh nhớ em nhiều lắm...`,
             `Mỗi ngày không có em bên cạnh là một ngày anh không thấy ánh mặt trời.`,
             `Anh đã suy nghĩ rất nhiều về những gì đã xảy ra và anh hối hận thật sự.`,
-            `Anh biết lời nói không thể xóa đi nỗi đau, nhưng anh mong em biết rằng anh yêu em vô điều kiện, yêu em dù lúc em đang buồn, dù lúc em đang vui, dù lúc em đang khóc, dù lúc em đang cười, dù lúc em đang có khó khăn, dù lúc em đang có những điều không vui.`
+            `Anh biết lời nói không thể xóa đi nỗi đau, nhưng anh mong em biết rằng anh yêu em vô điều kiện, yêu em dù lúc em đang buồn, dù lúc em đang vui, dù lúc em đang khóc, dù lúc em đang có khó khăn, dù lúc em đang có những điều không vui.`
         ];
         this.displayMessages(messages);
     }

@@ -877,3 +877,114 @@ button:active {
     border-radius: 20px;
     font-weight: bold;
 } 
+
+/* Promises Section */
+.promises-section {
+    width: 100%;
+    margin: 80px 0;
+    text-align: center;
+    padding: 20px;
+}
+
+.promises-section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.promises-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.promise-box {
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+    width: 120px;
+}
+
+.promise-box.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gift-box {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(231, 76, 60, 0.2);
+    border: 2px solid rgba(231, 76, 60, 0.6);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.gift-box:hover {
+    background-color: rgba(231, 76, 60, 0.3);
+    transform: translateY(-5px);
+}
+
+.gift-lid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: all 0.5s ease;
+}
+
+.promise-box.open .gift-lid {
+    transform: translateY(-80px);
+    opacity: 0;
+}
+
+.promise-hint {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.promise-display {
+    max-width: 600px;
+    margin: 40px auto;
+    min-height: 80px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    transition: all 0.5s ease;
+}
+
+#promise-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #fff;
+    font-style: italic;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+}
+
+.promise-display.reveal #promise-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+} 
