@@ -684,6 +684,88 @@ button:active {
 
 /* Responsive design for mobile */
 @media (max-width: 768px) {
+    /* Body và Container */
+    body {
+        overflow-x: hidden;
+    }
+    
+    .container {
+        padding: 10px;
+        margin: 20px auto;
+    }
+    
+    /* Tiêu đề và văn bản */
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Name input và nút bắt đầu */
+    .name-input-container {
+        padding: 25px 15px;
+        max-width: 300px;
+    }
+    
+    .name-input-container h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+    
+    #name-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    #start-btn {
+        padding: 10px 30px;
+        font-size: 14px;
+    }
+    
+    /* Message box và buttons */
+    .message-box {
+        padding: 20px 15px;
+    }
+    
+    #message-area {
+        min-height: 120px;
+        font-size: 16px;
+        padding: 15px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    
+    /* Song selection */
+    .song-selection {
+        padding: 20px 15px;
+    }
+    
+    .song-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .song-option {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 20px;
+    }
+    
+    /* Timeline section */
     .timeline-container {
         min-height: 1600px;
     }
@@ -703,8 +785,170 @@ button:active {
         left: 50px !important;
         right: auto !important;
         text-align: left !important;
+        top: -30px;
+        padding: 15px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+    
+    /* Gallery section */
+    .memory-image {
+        width: 160px;
+        height: 160px;
+    }
+    
+    /* Popup gallery */
+    .gallery-content {
+        padding: 10px;
+    }
+    
+    .gallery-img {
+        max-width: 100%;
+        max-height: 80vh;
+    }
+    
+    .gallery-prev, .gallery-next, .gallery-play {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        margin: 0 5px;
+    }
+    
+    .close-gallery {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+    
+    /* Promises section */
+    .promises-container {
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .promise-box {
+        width: 80px;
+    }
+    
+    .gift-box {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .promise-display {
+        margin: 20px auto;
+        padding: 15px;
+    }
+    
+    #promise-text {
+        font-size: 1rem;
+    }
+    
+    /* Love reasons section */
+    .love-reason-wrapper {
+        height: 50px;
+    }
+    
+    .love-reason-item {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+    
+    .love-reason-current {
+        padding: 15px;
+        min-height: 100px;
+    }
+    
+    #current-love-reason {
+        font-size: 1.2rem;
+    }
+    
+    /* Secret star */
+    .secret-star {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .star-icon {
+        font-size: 1.7rem;
+    }
+    
+    .secret-message-content {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .secret-message-content h3 {
+        font-size: 1.8rem;
+    }
+    
+    #secret-message {
+        font-size: 1.1rem;
+    }
+    
+    /* Poem section */
+    .poem {
+        padding: 20px 15px;
+    }
+    
+    .poem p {
+        font-size: 1.2rem;
     }
 }
+
+/* Điện thoại nhỏ hơn */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .name-input-container {
+        padding: 20px 10px;
+    }
+    
+    .timeline-content {
+        width: 75%;
+        padding: 12px;
+    }
+    
+    .memory-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .promise-box {
+        width: 70px;
+    }
+    
+    .gift-box {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .gift-lid {
+        font-size: 1.5rem;
+    }
+    
+    .love-reason-current {
+        padding: 12px;
+    }
+    
+    #current-love-reason {
+        font-size: 1.1rem;
+    }
+} 
 
 /* Gallery Section */
 .gallery-section {
@@ -857,6 +1101,7 @@ button:active {
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 1000;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch; /* Cải thiện cuộn mượt trên iOS */
 }
 
 .gallery-content {
@@ -866,6 +1111,7 @@ button:active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    touch-action: manipulation; /* Cải thiện phản hồi cảm ứng */
 }
 
 .gallery-images {
@@ -885,6 +1131,10 @@ button:active {
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     animation: fadeIn 0.5s ease;
+    -webkit-user-select: none; /* Ngăn chọn ảnh trên điện thoại */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .gallery-img.active {
@@ -1300,3 +1550,83 @@ button:active {
 } 
 
 /* CSS cho các ngôi sao đã được thay thế bằng phương pháp mới */ 
+
+/* Responsive design for gallery popup */
+@media (max-width: 768px) {
+    .gallery-content {
+        padding: 10px;
+    }
+    
+    .gallery-images {
+        width: 100%;
+        height: 70%;
+    }
+    
+    .gallery-img {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+    
+    .gallery-nav {
+        margin-top: 10px;
+        position: relative;
+        z-index: 1002; /* Đảm bảo nút hiển thị đúng */
+    }
+    
+    .gallery-prev, .gallery-next, .gallery-play {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        margin: 0 5px;
+        -webkit-tap-highlight-color: transparent; /* Loại bỏ highlight khi tap trên mobile */
+    }
+    
+    .image-counter {
+        margin-top: 5px;
+        padding: 3px 10px;
+    }
+    
+    .close-gallery {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
+
+/* Tối ưu hóa hiệu suất trên điện thoại */
+@media (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Giảm hiệu ứng để cải thiện hiệu suất */
+    .heart, .heart:before, .heart:after {
+        animation-duration: 2.5s;
+    }
+    
+    /* Giảm số lượng hiệu ứng trên mobile */
+    .star:nth-child(n+10) {
+        display: none;
+    }
+    
+    /* Các hiệu chỉnh khác cho mobile */
+    button:active {
+        transform: translateY(2px);
+    }
+    
+    .song-options {
+        gap: 10px;
+    }
+    
+    .memory-gallery {
+        gap: 15px;
+    }
+    
+    .poem {
+        margin: 0 10px;
+    }
+    
+    .scroll-indicator {
+        margin: 30px 0;
+    }
+} 

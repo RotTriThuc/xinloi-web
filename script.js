@@ -830,7 +830,7 @@ document.addEventListener('keydown', function(event) {
     const galleryPopup3 = document.getElementById('gallery-popup-3');
     
     // Gallery 1
-    if (galleryPopup.style.display === 'block') {
+    if (galleryPopup && galleryPopup.style.display === 'block') {
         if (event.key === 'Escape') {
             closeGallery();
             stopSlideshow();
@@ -845,7 +845,7 @@ document.addEventListener('keydown', function(event) {
     }
     
     // Gallery 2
-    if (galleryPopup2.style.display === 'block') {
+    if (galleryPopup2 && galleryPopup2.style.display === 'block') {
         if (event.key === 'Escape') {
             closeGallery2();
             stopSlideshow2();
@@ -860,7 +860,7 @@ document.addEventListener('keydown', function(event) {
     }
 
     // Gallery 3
-    if (galleryPopup3.style.display === 'block') {
+    if (galleryPopup3 && galleryPopup3.style.display === 'block') {
         if (event.key === 'Escape') {
             closeGallery3();
             stopSlideshow3();
@@ -891,7 +891,63 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Start with name input
     me.showNameInput();
+    
+    // Thêm sự kiện vuốt cho gallery
+    setupTouchEvents();
 });
+
+// Set up touch events for gallery
+function setupTouchEvents() {
+    // Set up for Gallery 1
+    const galleryPopup = document.getElementById('gallery-popup');
+    if (galleryPopup) {
+        setupSwipeForGallery(galleryPopup, changeImage);
+    }
+    
+    // Set up for Gallery 2
+    const galleryPopup2 = document.getElementById('gallery-popup-2');
+    if (galleryPopup2) {
+        setupSwipeForGallery(galleryPopup2, changeImage2);
+    }
+    
+    // Set up for Gallery 3
+    const galleryPopup3 = document.getElementById('gallery-popup-3');
+    if (galleryPopup3) {
+        setupSwipeForGallery(galleryPopup3, changeImage3);
+    }
+}
+
+// Set up swipe for specific gallery
+function setupSwipeForGallery(galleryElement, changeFunc) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const minSwipeDistance = 50; // Minimum distance to register as swipe
+    
+    galleryElement.addEventListener('touchstart', function(event) {
+        touchStartX = event.changedTouches[0].screenX;
+    }, false);
+    
+    galleryElement.addEventListener('touchend', function(event) {
+        touchEndX = event.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+        // Calculate swipe distance
+        const swipeDistance = touchEndX - touchStartX;
+        
+        // If minimum swipe distance is met, change image
+        if (Math.abs(swipeDistance) > minSwipeDistance) {
+            if (swipeDistance > 0) {
+                // Swipe right - show previous image
+                changeFunc(-1);
+            } else {
+                // Swipe left - show next image
+                changeFunc(1);
+            }
+        }
+    }
+}
 
 // Backup function for secret star in case class initialization fails
 function setupSecretStar() {
