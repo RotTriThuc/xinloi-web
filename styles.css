@@ -988,3 +988,100 @@ button:active {
     75% { transform: scale(1.1); }
     100% { transform: scale(1); }
 } 
+
+/* Love Reasons Section */
+.love-reasons-section {
+    width: 100%;
+    margin: 80px 0;
+    text-align: center;
+    padding: 20px;
+}
+
+.love-reasons-section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.love-reasons-container {
+    max-width: 800px;
+    margin: 40px auto;
+    position: relative;
+}
+
+.love-reason-wrapper {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    margin: 30px auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.love-reason-items {
+    position: absolute;
+    top: 0;
+    animation: scrollReasons 45s linear infinite;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+
+.love-reason-item {
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    opacity: 0.7;
+    transition: all 0.5s ease;
+}
+
+.love-reason-item.active {
+    opacity: 1;
+    transform: scale(1.05);
+    color: #e74c3c;
+}
+
+.love-reason-current {
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(231, 76, 60, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    max-width: 600px;
+    min-height: 120px;
+}
+
+.heart-icon {
+    font-size: 2rem;
+    color: #e74c3c;
+    margin-bottom: 10px;
+    animation: heartbeat 1.5s infinite;
+}
+
+#current-love-reason {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    opacity: 0.9;
+}
+
+@keyframes scrollReasons {
+    0% {
+        transform: translateY(60px);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+} 

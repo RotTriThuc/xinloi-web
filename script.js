@@ -43,6 +43,9 @@ class MyHeart {
         // Set up promises interaction
         this.setupPromisesInteraction();
         
+        // Set up love reasons interaction
+        this.setupLoveReasonsInteraction();
+        
         // Start memory cycle
         this.startMemoryCycle();
     }
@@ -61,6 +64,7 @@ class MyHeart {
         const timelineItems = document.querySelectorAll('.timeline-content');
         const memoryItems = document.querySelectorAll('.memory-item');
         const promiseBoxes = document.querySelectorAll('.promise-box');
+        const loveReasonsSection = document.querySelector('.love-reasons-section');
         const poemSection = document.querySelector('.poem-section');
         const signature = document.querySelector('.signature');
         
@@ -103,6 +107,9 @@ class MyHeart {
                 box.classList.add('animate');
             }, 500 + Array.from(promiseBoxes).indexOf(box) * 200);
         });
+        
+        // Observe love reasons section
+        if (loveReasonsSection) observer.observe(loveReasonsSection);
         
         // Observe poem section and signature
         if (poemSection) observer.observe(poemSection);
@@ -406,6 +413,82 @@ class MyHeart {
             `Anh biết lời nói không thể xóa đi nỗi đau, nhưng anh mong em biết rằng anh yêu em vô điều kiện, yêu em dù lúc em đang buồn, dù lúc em đang vui, dù lúc em đang khóc, dù lúc em đang có khó khăn, dù lúc em đang có những điều không vui.`
         ];
         this.displayMessages(messages);
+    }
+
+    // Set up love reasons interaction
+    setupLoveReasonsInteraction() {
+        const loveReasonItems = document.querySelectorAll('.love-reason-item');
+        const currentLoveReason = document.getElementById('current-love-reason');
+        let currentIndex = 0;
+        let isAutoScrolling = true;
+        
+        // Show first reason initially
+        if (loveReasonItems.length > 0) {
+            currentLoveReason.textContent = loveReasonItems[0].textContent;
+            loveReasonItems[0].classList.add('active');
+        }
+        
+        // Change reason every 3 seconds
+        setInterval(() => {
+            if (isAutoScrolling) {
+                // Remove active class from current item
+                loveReasonItems[currentIndex].classList.remove('active');
+                
+                // Update index
+                currentIndex = (currentIndex + 1) % loveReasonItems.length;
+                
+                // Add active class to new item
+                loveReasonItems[currentIndex].classList.add('active');
+                
+                // Update displayed reason with animation
+                currentLoveReason.style.opacity = '0';
+                setTimeout(() => {
+                    currentLoveReason.textContent = loveReasonItems[currentIndex].textContent;
+                    currentLoveReason.style.opacity = '1';
+                }, 300);
+            }
+        }, 3000);
+        
+        // Allow clicking on reasons to display them
+        loveReasonItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                // Stop auto scrolling temporarily
+                isAutoScrolling = false;
+                
+                // Remove active class from all items
+                loveReasonItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                item.classList.add('active');
+                
+                // Update current index
+                currentIndex = index;
+                
+                // Update displayed reason
+                currentLoveReason.style.opacity = '0';
+                setTimeout(() => {
+                    currentLoveReason.textContent = item.textContent;
+                    currentLoveReason.style.opacity = '1';
+                }, 300);
+                
+                // Resume auto scrolling after 10 seconds
+                setTimeout(() => {
+                    isAutoScrolling = true;
+                }, 10000);
+            });
+        });
+        
+        // Pause animation on hover
+        const loveReasonWrapper = document.querySelector('.love-reason-wrapper');
+        if (loveReasonWrapper) {
+            loveReasonWrapper.addEventListener('mouseenter', () => {
+                document.querySelector('.love-reason-items').style.animationPlayState = 'paused';
+            });
+            
+            loveReasonWrapper.addEventListener('mouseleave', () => {
+                document.querySelector('.love-reason-items').style.animationPlayState = 'running';
+            });
+        }
     }
 }
 
