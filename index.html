@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời Xin Lỗi Từ Trái Tim</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;600&display=swap">
+</head>
+<body>
+    <div class="background-container">
+        <div class="stars"></div>
+        <div class="falling-hearts"></div>
+    </div>
+
+    <div class="container">
+        <div class="name-input-container" id="name-container">
+            <h2>Gửi đến em...</h2>
+            <input type="text" id="name-input" placeholder="Nhập tên em vào đây...">
+            
+            <button id="start-btn">Bắt đầu</button>
+        </div>
+
+        <div class="song-selection" id="song-selection" style="display: none;">
+            <h2>Chọn một bài hát để gửi tặng em</h2>
+            <div class="song-options">
+                <div class="song-option" data-song="Taylor Swift - Love Story.mp3" data-message="Thông điệp bài hát anh muốn gửi đến em: Love Story không chỉ là một câu chuyện tình yêu mà còn là một lời nhắc nhở rằng tình yêu có thể vượt qua mọi rào cản.">
+                    <div class="song-image">
+                        <img src="Taylor_Swift_-_Love_Story.png" alt="Love Story">
+                    </div>
+                    <h3>Love Story</h3>
+                    <p>Taylor Swift</p>
+                </div>
+                <div class="song-option" data-song="One Direction - Night Changes.mp3" data-message="Thông điệp bài hát anh muốn gửi đến em: Mặc dù cuộc sống có thể thay đổi, tình cảm và những mối quan hệ chân thành sẽ không bao giờ thay đổi.">
+                    <div class="song-image">
+                        <img src="One_Direction_-_Night_Changes_Single_Cover.png" alt="Night Changes">
+                    </div>
+                    <h3>Night Changes</h3>
+                    <p>One Direction</p>
+                </div>
+                <div class="song-option" data-song="yung kai - blue.mp3" data-message="Thông điệp bài hát anh muốn gửi đến em: Mong muốn có một mối quan hệ bền vững, với câu hỏi như 'Em có muốn ở bên anh mãi mãi không?">
+                    <div class="song-image">
+                        <img src="Yung_Kai_-_Blue.png" alt="blue">
+                    </div>
+                    <h3>blue</h3>
+                    <p>Yung Kai</p>
+                </div>
+            </div>
+            <p class="song-selection-guide">Hãy chọn một bài hát phù hợp với cảm xúc của em lúc này, 3 bài hát này mỗi bài hát đều có thông điệp riêng anh muốn gửi đến em</p>
+        </div>
+
+        <div class="content" id="content-container" style="display: none;">
+            <div class="heart-container">
+                <div class="heart"></div>
+            </div>
+            
+            <div class="message-box">
+                <h1>Lời Xin Lỗi Từ Trái Tim Anh</h1>
+                <div class="memories">
+                    <div class="memory-text">Những kỷ niệm của chúng ta</div>
+                </div>
+                <div id="message-area"></div>
+                <audio id="background-music" src="Taylor Swift - Love Story.mp3" preload="auto" loop></audio>
+                <div class="button-container">
+                    <button id="sorry-btn">Xin Lỗi Em</button>
+                    <button id="promise-btn">Lời Hứa Của Anh</button>
+                    <button id="feelings-btn">Tâm Sự</button>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span class="arrow">↓</span>
+                <p>Kéo xuống để xem thêm</p>
+            </div>
+            
+            <div class="timeline-section">
+                <h2>Hành Trình Của Chúng Ta</h2>
+                
+                <div class="timeline-container">
+                    <div class="red-line"></div>
+                    
+                    <div class="circle-point point1">
+                        <div class="red-circle"></div>
+                        <div class="timeline-content left">
+                            <h3>Lần Đầu Gặp Nhau</h3>
+                            <p>Anh vẫn nhớ như in khoảnh khắc đầu tiên nhìn thấy em. Trái tim anh đập nhanh hơn, và anh biết cuộc đời mình sẽ không còn như cũ.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="circle-point point2">
+                        <div class="red-circle"></div>
+                        <div class="timeline-content right">
+                            <h3>Những Ngày Bên Nhau</h3>
+                            <p>Mỗi phút giây bên em đều là kỷ niệm quý giá với anh. Những buổi tối cùng nhau đi dạo, những cuộc trò chuyện đến đêm muộn...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="circle-point point3">
+                        <div class="red-circle"></div>
+                        <div class="timeline-content left">
+                            <h3>Khi Anh Mắc Sai Lầm</h3>
+                            <p>Anh đã không đủ trân trọng những gì mình có. Anh đã mắc sai lầm và làm tổn thương em. Đó là điều anh hối hận nhất.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="circle-point point4">
+                        <div class="red-circle"></div>
+                        <div class="timeline-content right">
+                            <h3>Lời Hứa Cho Tương Lai</h3>
+                            <p>Anh hứa sẽ thay đổi và trở thành phiên bản tốt nhất của mình. Mỗi ngày anh sẽ cố gắng để xứng đáng với tình yêu của em.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-section">
+                <h2>Khoảnh Khắc Đáng Nhớ</h2>
+                <p class="section-desc">Những kỷ niệm đẹp của chúng ta sẽ mãi trong tim anh</p>
+                <div class="memory-gallery">
+                    <div class="memory-item">
+                        <div class="memory-image" onclick="openGallery(0)">
+                            <img src="ky niem 1/IMG_0424.jpg" alt="Kỷ niệm 1" class="memory-photo">
+                        </div>
+                        <p class="memory-caption">Lúc này bọn mình hay đi net bắn valorant nè</p>
+                    </div>
+                    <div class="memory-item">
+                        <div class="memory-image" onclick="openGallery2(0)">
+                            <img src="ky niem 2/att.e7MWaCaBk3AFYDVfbfO3CxXrS-BVJ94p46D7NVW5xzU.jpg" alt="Kỷ niệm 2" class="memory-photo">
+                        </div>
+                        <p class="memory-caption">Lúc này thì em đi làm đi học chụp mấy tấm ảnh dễ thương nè</p>
+                    </div>
+                    <div class="memory-item">
+                        <div class="memory-image" onclick="openGallery3(0)">
+                            <img src="ky niem 3/807fca0ee1e8d2cc3e42c19e10ad8b9c.jpeg" alt="Kỷ niệm 3" class="memory-photo">
+                        </div>
+                        <p class="memory-caption">Lúc này là anh nhận được những tấm ảnh đáng yêu từ em nè</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Popup for Ky Niem 1 -->
+            <div class="gallery-popup" id="gallery-popup">
+                <span class="close-gallery" onclick="closeGallery()">&times;</span>
+                <div class="gallery-content">
+                    <div class="gallery-images">
+                        <img src="ky niem 1/IMG_0424.jpg" class="gallery-img active">
+                        <img src="ky niem 1/IMG_0215.jpg" class="gallery-img">
+                        <img src="ky niem 1/att.gJwHj2gOegw99-1cAbTVjpP0JnT5wYlqL1WRyjnAxu0.jpg" class="gallery-img">
+                        <img src="ky niem 1/att.wYdiWGPdVmsdJJmHY-demfybzD04eVnap_g4mk2HiEY.jpg" class="gallery-img">
+                        <img src="ky niem 1/att.IFEQ_CzUV1MZCyzJSdeSW3NvLUW6ODNXddqTP5m3wNs.jpg" class="gallery-img">
+                        <img src="ky niem 1/IMG_0632.png" class="gallery-img">
+                        <img src="ky niem 1/att.BFB80xhOwtznYJgeYr5SI0zE376RfEhzh2r5DnWpITE.jpg" class="gallery-img">
+                        <img src="ky niem 1/IMG_0307.JPG" class="gallery-img">
+                        <img src="ky niem 1/IMG_0218.jpg" class="gallery-img">
+                        <img src="ky niem 1/IMG_0223.jpg" class="gallery-img">
+                        <img src="ky niem 1/att.yod_6oGv0RWiH-eU8akJ-1bOj8f44QebCYaH_PZ4aT8.jpg" class="gallery-img">
+                    </div>
+                    <div class="image-counter"><span id="current-image">1</span> / <span id="total-images">11</span></div>
+                    <div class="gallery-nav">
+                        <button class="gallery-prev" onclick="changeImage(-1)">&#10094;</button>
+                        <button class="gallery-play" onclick="toggleSlideshow()"><span id="play-icon">▶</span></button>
+                        <button class="gallery-next" onclick="changeImage(1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Popup for Ky Niem 2 -->
+            <div class="gallery-popup" id="gallery-popup-2">
+                <span class="close-gallery" onclick="closeGallery2()">&times;</span>
+                <div class="gallery-content">
+                    <div class="gallery-images" id="gallery-images-2">
+                        <img src="ky niem 2/att.e7MWaCaBk3AFYDVfbfO3CxXrS-BVJ94p46D7NVW5xzU.jpg" class="gallery-img active">
+                        <img src="ky niem 2/att.fLfnarB0L-8bEgirZU5uRDfgmeZiSczRv4Foajkwp5M.jpg" class="gallery-img">
+                        <img src="ky niem 2/att.Co2W8hht2BHjgZAejmdrESaRHNme6a_MLlrpbTDdOoE.jpg" class="gallery-img">
+                        <img src="ky niem 2/att.sl1YSwpfKFYrLLZ9UK18ZME7aSqYSl4Z2s7XptNjPiI.jpg" class="gallery-img">
+                        <img src="ky niem 2/att.FKJ09EbC9GMhfHYHJZaEnQJjXs4LC6ICEAc1gTozaFU.jpg" class="gallery-img">
+                        <img src="ky niem 2/att.nxX-iUMdfrJr9jMl19-aVOJnLEtZDPDeixqH2bbFqHM.jpg" class="gallery-img">
+                        <img src="ky niem 2/att.2pWPAPpE_fNkwX5lJ4V-fy5Xy9FhdWNjIeT_lGKakTs.jpg" class="gallery-img">
+                    </div>
+                    <div class="image-counter"><span id="current-image-2">1</span> / <span id="total-images-2">7</span></div>
+                    <div class="gallery-nav">
+                        <button class="gallery-prev" onclick="changeImage2(-1)">&#10094;</button>
+                        <button class="gallery-play" onclick="toggleSlideshow2()"><span id="play-icon-2">▶</span></button>
+                        <button class="gallery-next" onclick="changeImage2(1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery Popup for Ky Niem 3 -->
+            <div class="gallery-popup" id="gallery-popup-3">
+                <span class="close-gallery" onclick="closeGallery3()">&times;</span>
+                <div class="gallery-content">
+                    <div class="gallery-images" id="gallery-images-3">
+                        <img src="ky niem 3/807fca0ee1e8d2cc3e42c19e10ad8b9c.jpeg" class="gallery-img active">
+                        <img src="ky niem 3/att.PqrtVyk4MYZWoRF7EJAbIzLzUKp2f3TAlVDiHrpFAYU.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.066Aul8wYg0Wgosv_TSoa6x3ZybFkXZVdTu5fqSmB5E.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.yUfv60QEtnYC1jnhILz-FfleVN2MpK_9UcmX27Borkw.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.fKMVmL8Orm1gR4fzFzLnB6VL3TEhQ5rlWdm7uC7pj8g.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.biZUX9TIf8GtcK_JbrXo3DCeypyV0P36gxVTJpbrguo.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.NlEtW525ipB8lIzwiV9MB2EZIibGbeea53YXSOWGIWE.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.cYGrT5OISpLlSBwdBoLgyZSgpI6AGWGeTEIQsIm5Mhk.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.dFfC-HW0_0PZnTHBN860p9EmcTIespH66fFkESJedQs.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.rvjpwjRfzOmjrfPAi0s9Sl4t9NHI_9VnUVbZPYow_H8.jpg" class="gallery-img">
+                        <img src="ky niem 3/att.z4VxDRZPjDi_dffoJ5y5dC1V_blhWVbkfeO6zozF9UU.jpg" class="gallery-img">
+                    </div>
+                    <div class="image-counter"><span id="current-image-3">1</span> / <span id="total-images-3">11</span></div>
+                    <div class="gallery-nav">
+                        <button class="gallery-prev" onclick="changeImage3(-1)">&#10094;</button>
+                        <button class="gallery-play" onclick="toggleSlideshow3()"><span id="play-icon-3">▶</span></button>
+                        <button class="gallery-next" onclick="changeImage3(1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="poem-section">
+                <h2>Vài Câu Thơ Gửi Em</h2>
+                <div class="poem">
+                    <p>Từng giây phút bên em, anh trân quý vô cùng</p>
+                    <p>Dù mai này thế nào, tình anh vẫn một lòng</p>
+                    <p>Xin lỗi em vì những lúc anh vô tâm</p>
+                    <p>Cho anh cơ hội để yêu em nhiều hơn</p>
+                </div>
+            </div>
+
+            <div class="signature">
+                <p>Với tất cả tình yêu của Anh,</p>
+                <p class="signature-name">Hoài Vũ</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
