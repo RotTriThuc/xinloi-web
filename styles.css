@@ -28,45 +28,47 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 90px 40px, #ddd, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 160px 120px, #fff, rgba(0,0,0,0));
-    background-repeat: repeat;
-    background-size: 200px 200px;
-    animation: twinkle 4s infinite;
     z-index: -1;
+    overflow: hidden;
 }
 
-/* Thêm các ngôi sao thực tế để đảm bảo hiển thị */
-.stars::before {
-    content: "";
+/* CSS cho SVG stars */
+.star-svg {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(1px 1px at 10% 10%, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 20% 20%, #fff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 30% 30%, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 40% 40%, #fff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 50% 50%, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 60% 60%, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 70% 70%, #fff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 80% 80%, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 90% 90%, #fff, rgba(0,0,0,0));
-    background-repeat: repeat;
-    background-size: 200px 200px;
-    opacity: 0.7;
+    width: 15px;
+    height: 15px;
+    animation: twinkle 4s infinite;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
 }
+
+.star-svg:nth-child(1) { top: 5%; left: 10%; animation-delay: 0.2s; animation-duration: 4.5s; }
+.star-svg:nth-child(2) { top: 15%; left: 25%; animation-delay: 0.5s; animation-duration: 3.8s; }
+.star-svg:nth-child(3) { top: 8%; left: 50%; animation-delay: 0.8s; animation-duration: 5.2s; }
+.star-svg:nth-child(4) { top: 20%; left: 75%; animation-delay: 1s; animation-duration: 3.5s; }
+.star-svg:nth-child(5) { top: 25%; left: 90%; animation-delay: 1.2s; animation-duration: 4.2s; }
+.star-svg:nth-child(6) { top: 35%; left: 15%; animation-delay: 1.5s; animation-duration: 4.8s; }
+.star-svg:nth-child(7) { top: 45%; left: 35%; animation-delay: 1.8s; animation-duration: 3.9s; }
+.star-svg:nth-child(8) { top: 30%; left: 60%; animation-delay: 2.1s; animation-duration: 5s; }
+.star-svg:nth-child(9) { top: 40%; left: 80%; animation-delay: 2.3s; animation-duration: 4s; }
+.star-svg:nth-child(10) { top: 55%; left: 5%; animation-delay: 2.6s; animation-duration: 4.3s; }
+.star-svg:nth-child(11) { top: 65%; left: 30%; animation-delay: 2.9s; animation-duration: 4.7s; }
+.star-svg:nth-child(12) { top: 60%; left: 55%; animation-delay: 3.2s; animation-duration: 3.7s; }
+.star-svg:nth-child(13) { top: 70%; left: 70%; animation-delay: 3.5s; animation-duration: 4.6s; }
+.star-svg:nth-child(14) { top: 80%; left: 15%; animation-delay: 3.8s; animation-duration: 4.1s; }
+.star-svg:nth-child(15) { top: 85%; left: 40%; animation-delay: 4.1s; animation-duration: 3.6s; }
+.star-svg:nth-child(16) { top: 75%; left: 85%; animation-delay: 4.4s; animation-duration: 5.3s; }
+.star-svg:nth-child(17) { top: 90%; left: 60%; animation-delay: 4.7s; animation-duration: 3.8s; }
+.star-svg:nth-child(18) { top: 95%; left: 95%; animation-delay: 5s; animation-duration: 4.4s; }
+.star-svg:nth-child(19) { top: 12%; left: 35%; animation-delay: 5.3s; animation-duration: 3.6s; }
+.star-svg:nth-child(20) { top: 50%; left: 92%; animation-delay: 5.6s; animation-duration: 4.9s; }
 
 @keyframes twinkle {
-    0% { opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { opacity: 0.5; }
+    0% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.3; transform: scale(0.8); }
 }
+
+/* Ngôi sao được hiển thị bằng SVG */
 
 .falling-hearts {
     position: absolute;
@@ -1252,24 +1254,4 @@ button:active {
     }
 } 
 
-/* CSS cho các ngôi sao HTML */
-.star-element {
-    position: absolute;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.7);
-    z-index: -1;
-    opacity: 0.5;
-    animation: twinkle 3s infinite alternate;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    transform: scale(0.6);
-}
-
-.star-element:nth-child(even) {
-    animation-duration: 4s;
-    animation-delay: 1s;
-}
-
-.star-element:nth-child(3n) {
-    animation-duration: 5s;
-    animation-delay: 0.5s;
-} 
+/* CSS cho các ngôi sao đã được thay thế bằng SVG */ 
