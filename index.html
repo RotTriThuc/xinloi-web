@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;600&display=swap">
 </head>
 <body>
+    <!-- Thêm mật thư với ngôi sao lấp lánh -->
+    <div class="secret-star" id="secret-star">
+        <div class="star-icon">✨</div>
+    </div>
+
+    <!-- Popup cho mật thư -->
+    <div class="secret-message-popup" id="secret-message-popup">
+        <div class="secret-message-content">
+            <span class="close-secret">&times;</span>
+            <h3>Mật Thư Riêng Cho Em</h3>
+            <p id="secret-message">Em là điều tuyệt vời nhất anh từng có trong cuộc đời này. Không có em, thế giới của anh sẽ trở nên tối tăm. Anh yêu em nhiều lắm!</p>
+            <div class="secret-heart">💖</div>
+        </div>
+    </div>
+
     <div class="background-container">
         <div class="stars"></div>
         <div class="falling-hearts"></div>
@@ -19,21 +34,6 @@
             <input type="text" id="name-input" placeholder="Nhập tên em vào đây...">
             
             <button id="start-btn">Bắt đầu</button>
-        </div>
-
-        <!-- Thêm mật thư với ngôi sao lấp lánh -->
-        <div class="secret-star" id="secret-star">
-            <div class="star-icon">✨</div>
-        </div>
-
-        <!-- Popup cho mật thư -->
-        <div class="secret-message-popup" id="secret-message-popup">
-            <div class="secret-message-content">
-                <span class="close-secret">&times;</span>
-                <h3>Mật Thư Riêng Cho Em</h3>
-                <p id="secret-message">Em là điều tuyệt vời nhất anh từng có trong cuộc đời này. Không có em, thế giới của anh sẽ trở nên tối tăm. Anh yêu em nhiều lắm!</p>
-                <div class="secret-heart">💖</div>
-            </div>
         </div>
 
         <div class="song-selection" id="song-selection" style="display: none;">

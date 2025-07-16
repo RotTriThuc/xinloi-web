@@ -227,7 +227,7 @@ class MyHeart {
         if (inputName.toLowerCase() === "nana") {
             this.personName = "NaNa";
         } else {
-            this.personName = "Quỳnh Thy";
+        this.personName = "Quỳnh Thy";
         }
         
         // Hide name input and show song selection
@@ -256,7 +256,7 @@ class MyHeart {
                 this.songMessage
             ]);
         } else {
-            this.displayMessage(`${this.personName} ơi, anh có điều muốn nói...`);
+        this.displayMessage(`${this.personName} ơi, anh có điều muốn nói...`);
         }
         
         // Create heart animation
@@ -509,6 +509,12 @@ class MyHeart {
         const secretMessagePopup = document.getElementById('secret-message-popup');
         const closeSecret = document.querySelector('.close-secret');
         const secretMessage = document.getElementById('secret-message');
+        
+        // Check if elements exist before setting up event listeners
+        if (!secretStar || !secretMessagePopup || !closeSecret || !secretMessage) {
+            console.error('Secret message elements not found!');
+            return;
+        }
         
         // Show popup when clicking star
         secretStar.addEventListener('click', () => {
@@ -880,6 +886,53 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create the heart instance
     const me = new MyHeart();
     
+    // Set up secret star (redundant call to ensure it's initialized even if the class initialization fails)
+    setupSecretStar();
+    
     // Start with name input
     me.showNameInput();
-}); 
+});
+
+// Backup function for secret star in case class initialization fails
+function setupSecretStar() {
+    const secretStar = document.getElementById('secret-star');
+    const secretMessagePopup = document.getElementById('secret-message-popup');
+    const closeSecret = document.querySelector('.close-secret');
+    const secretMessage = document.getElementById('secret-message');
+    
+    // Check if elements exist before setting up event listeners
+    if (!secretStar || !secretMessagePopup || !closeSecret || !secretMessage) {
+        console.error('Secret message elements not found!');
+        return;
+    }
+    
+    const secretMessages = [
+        "Em là ngôi sao sáng nhất trong vũ trụ của anh",
+        "Anh nhớ em rất nhiều, em có biết không?",
+        "Em là lý do anh mỉm cười mỗi ngày",
+        "Tình yêu anh dành cho em sẽ không bao giờ thay đổi",
+        "Anh muốn được nắm tay em đi hết quãng đời còn lại"
+    ];
+    
+    // Show popup when clicking star
+    secretStar.addEventListener('click', () => {
+        // Choose random secret message
+        const randomIndex = Math.floor(Math.random() * secretMessages.length);
+        secretMessage.textContent = secretMessages[randomIndex];
+        
+        // Show popup
+        secretMessagePopup.style.display = 'block';
+    });
+    
+    // Close popup when clicking X
+    closeSecret.addEventListener('click', () => {
+        secretMessagePopup.style.display = 'none';
+    });
+    
+    // Close popup when clicking outside
+    secretMessagePopup.addEventListener('click', (event) => {
+        if (event.target === secretMessagePopup) {
+            secretMessagePopup.style.display = 'none';
+        }
+    });
+} 
