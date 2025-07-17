@@ -480,6 +480,18 @@ button:active {
     position: relative;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+/* Điều chỉnh kích thước cho màn hình nhỏ hơn */
+@media (max-width: 900px) {
+    .song-options {
+        justify-content: center;
+    }
+    
+    .song-option {
+        width: 180px;
+    }
 }
 
 .song-option:hover {
