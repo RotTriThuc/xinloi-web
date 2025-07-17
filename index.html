@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
+    <meta name="theme-color" content="#ffeef2">
     <title>Lời Xin Lỗi Từ Trái Tim</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;600&display=swap">
     <!-- Đảm bảo hiển thị ngôi sao trên tất cả các nền tảng -->
     <style>
+        html, body {
+            background-color: #ffeef2 !important;
+        }
+        .background-container {
+            background-color: #ffeef2 !important;
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 182, 193, 0.8) 0%, rgba(255, 238, 242, 1) 100%) !important;
+        }
         .star {
             background-color: white !important;
             box-shadow: 0 0 10px white, 0 0 20px white !important;
@@ -302,7 +310,7 @@
             
             <div class="gallery-section">
                 <h2>Khoảnh Khắc Đáng Nhớ</h2>
-                <p class="section-desc">Những kỷ niệm đẹp của chúng ta sẽ mãi trong tim anh</p>
+                <p class="section-desc">Những kỷ niệm đẹp của chúng ta sẽ mãi trong tim anh<br>Em nhớ bấm vào để xem nhé!</p>
                 <div class="memory-gallery">
                     <div class="memory-item">
                         <div class="memory-image" onclick="openGallery(0)">
