@@ -1,3 +1,8 @@
+head {
+    /* Thêm font chữ viết tay mới */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;600&family=Pacifico&family=Sacramento&display=swap');
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -23,6 +28,8 @@ body {
     z-index: -1;
     overflow: hidden;
     background-color: #1a1a2e; /* Đảm bảo màu nền chính xác */
+    /* Thêm hiệu ứng ánh sáng mềm mại */
+    background-image: radial-gradient(circle at 50% 50%, rgba(45, 52, 80, 0.8) 0%, rgba(26, 26, 46, 1) 100%);
 }
 
 /* Hiệu ứng bầu trời đêm có ngôi sao */
@@ -223,11 +230,18 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(231, 76, 60, 0.1);
     text-align: center;
     width: 100%;
     backdrop-filter: blur(5px);
     animation: fadeIn 1s ease;
+    border: 1px solid rgba(231, 76, 60, 0.1);
+    transition: all 0.3s ease;
+}
+
+.message-box:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(231, 76, 60, 0.2);
+    transform: translateY(-5px);
 }
 
 h1 {
@@ -285,7 +299,7 @@ button {
     cursor: pointer;
     font-size: 18px;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 20px rgba(231, 76, 60, 0.3);
     flex: 1;
     min-width: 150px;
 }
@@ -293,7 +307,7 @@ button {
 button:hover {
     background-color: #c0392b;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 30px rgba(231, 76, 60, 0.5);
 }
 
 button:active {
@@ -1719,5 +1733,203 @@ button:active {
     
     .promise-box-content p {
         font-size: 1.1rem;
+    }
+} 
+
+/* Chữ viết tay cho các tiêu đề */
+h1, h2, h3 {
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Hiệu ứng chữ viết tay cho thông điệp */
+.handwritten {
+    font-family: 'Sacramento', cursive;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Hiệu ứng chữ viết tay đặc biệt */
+.special-message {
+    font-family: 'Pacifico', cursive;
+    color: #e74c3c;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+    margin: 30px 0;
+    text-align: center;
+}
+
+/* Hiệu ứng glow cho các nút */
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 20px rgba(231, 76, 60, 0.3);
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Trích dẫn lãng mạn */
+.romantic-quote {
+    position: relative;
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
+
+.romantic-quote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(231, 76, 60, 0.2);
+}
+
+.romantic-quote p {
+    font-family: 'Sacramento', cursive;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #fff;
+}
+
+.romantic-quote .author {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #e74c3c;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.romantic-quote::before,
+.romantic-quote::after {
+    content: '"';
+    font-family: 'Georgia', serif;
+    font-size: 4rem;
+    color: rgba(231, 76, 60, 0.3);
+    position: absolute;
+    line-height: 1;
+}
+
+.romantic-quote::before {
+    top: 5px;
+    left: 10px;
+}
+
+.romantic-quote::after {
+    bottom: -20px;
+    right: 10px;
+}
+
+/* Hiệu ứng trái tim rơi tăng cường */
+.falling-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.heart-particle {
+    position: absolute;
+    color: rgba(231, 76, 60, 0.4);
+    font-size: 20px;
+    animation: heart-fall linear infinite;
+    z-index: -1;
+}
+
+@keyframes heart-fall {
+    0% { 
+        transform: translateY(-50px) rotate(0deg); 
+        opacity: 0;
+    }
+    10% { 
+        opacity: 0.8;
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg); 
+        opacity: 0;
+    }
+}
+
+/* Hiệu ứng viết chữ */
+.typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid #e74c3c;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.1em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+    max-width: 0;
+    transition: max-width 3.5s steps(40, end);
+}
+
+.active-typewriter {
+    max-width: 100%;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #e74c3c }
+} 
+
+/* Hiệu ứng trái tim bay lên */
+@keyframes float-heart {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, -100px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Hiệu ứng nhấp nháy mềm mại cho các phần tử đặc biệt */
+.glow-effect {
+    animation: soft-glow 2s infinite alternate;
+}
+
+@keyframes soft-glow {
+    from {
+        text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+    }
+    to {
+        text-shadow: 0 0 15px rgba(231, 76, 60, 0.7), 0 0 25px rgba(231, 76, 60, 0.5);
+    }
+}
+
+/* Hiệu ứng nền gradient chuyển động */
+.gradient-bg {
+    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 } 

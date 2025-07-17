@@ -407,16 +407,37 @@ class MyHeart {
     createHeartParticles() {
         const fallingHearts = document.querySelector('.falling-hearts');
         
-        // Create more falling hearts
-        for (let i = 0; i < 8; i++) {
+        // Xóa trái tim cũ nếu có
+        fallingHearts.innerHTML = '';
+        
+        // Tạo nhiều trái tim hơn với kích thước và màu sắc đa dạng
+        const heartSymbols = ['❤', '💖', '💕', '💓', '💗'];
+        const heartCount = 20; // Tăng số lượng trái tim
+        
+        for (let i = 0; i < heartCount; i++) {
             const heart = document.createElement('div');
-            heart.innerHTML = '❤';
-            heart.style.position = 'absolute';
-            heart.style.fontSize = Math.floor(Math.random() * 15 + 10) + 'px';
-            heart.style.color = `rgba(231, 76, 60, ${Math.random() * 0.3 + 0.1})`;
+            const randomSymbol = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.innerHTML = randomSymbol;
+            heart.classList.add('heart-particle');
+            
+            // Tạo vị trí ngẫu nhiên
             heart.style.left = Math.floor(Math.random() * 100) + '%';
             heart.style.top = '-30px';
-            heart.style.animation = `fall ${Math.floor(Math.random() * 6 + 5)}s infinite linear ${Math.random() * 5}s`;
+            
+            // Tạo kích thước ngẫu nhiên
+            const size = Math.floor(Math.random() * 15 + 10);
+            heart.style.fontSize = size + 'px';
+            
+            // Tạo độ trong suốt ngẫu nhiên
+            const opacity = Math.random() * 0.5 + 0.3;
+            heart.style.opacity = opacity;
+            
+            // Tạo thời gian rơi và độ trễ ngẫu nhiên
+            const duration = Math.floor(Math.random() * 10 + 5);
+            const delay = Math.random() * 5;
+            heart.style.animation = `heart-fall ${duration}s linear infinite ${delay}s`;
+            
+            // Thêm vào container
             fallingHearts.appendChild(heart);
         }
     }
@@ -428,7 +449,7 @@ class MyHeart {
         
         // Create paragraph for the message
         const paragraph = document.createElement('p');
-        paragraph.className = 'message';
+        paragraph.className = 'message handwritten'; // Thêm lớp handwritten
         paragraph.textContent = message;
         
         // Add to DOM
@@ -447,7 +468,7 @@ class MyHeart {
             
             // Create paragraph
             const paragraph = document.createElement('p');
-            paragraph.className = 'message';
+            paragraph.className = 'message handwritten'; // Thêm lớp handwritten
             paragraph.textContent = message;
             
             // Add to DOM
@@ -967,6 +988,73 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Thêm sự kiện vuốt cho gallery
     setupTouchEvents();
+    
+    // Khởi tạo hiệu ứng chữ viết tự động
+    initTypewriterEffects();
+});
+
+// Khởi tạo hiệu ứng chữ viết tự động
+function initTypewriterEffects() {
+    // Lấy tất cả các phần tử có lớp typewriter
+    const typewriters = document.querySelectorAll('.typewriter');
+    
+    // Áp dụng hiệu ứng cho từng phần tử
+    typewriters.forEach((element, index) => {
+        // Lưu nội dung gốc
+        const originalText = element.textContent;
+        
+        // Xóa nội dung hiện tại
+        element.textContent = '';
+        
+        // Đặt chiều rộng ban đầu là 0
+        element.style.width = '0';
+        
+        // Thêm độ trễ để hiệu ứng không chạy cùng lúc
+        setTimeout(() => {
+            // Đặt nội dung trở lại
+            element.textContent = originalText;
+            
+            // Kích hoạt hiệu ứng bằng cách thêm lớp active
+            element.classList.add('active-typewriter');
+            
+            // Đặt chiều rộng phù hợp
+            element.style.width = '100%';
+        }, index * 1000); // Mỗi phần tử sẽ bắt đầu sau phần tử trước 1 giây
+    });
+}
+
+// Tạo hiệu ứng trái tim bay lên khi click vào nút
+function createFloatingHeart(x, y) {
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.style.position = 'fixed';
+    heart.style.left = x + 'px';
+    heart.style.top = y + 'px';
+    heart.style.fontSize = '20px';
+    heart.style.pointerEvents = 'none';
+    heart.style.zIndex = '9999';
+    heart.style.animation = 'float-heart 2s forwards';
+    document.body.appendChild(heart);
+    
+    // Xóa trái tim sau khi hoàn thành animation
+    setTimeout(() => {
+        document.body.removeChild(heart);
+    }, 2000);
+}
+
+// Thêm hiệu ứng trái tim bay lên khi click vào các nút
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Tạo nhiều trái tim từ vị trí click
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    createFloatingHeart(e.clientX + (Math.random() * 40 - 20), e.clientY + (Math.random() * 20 - 10));
+                }, i * 100);
+            }
+        });
+    });
 });
 
 // Set up touch events for gallery
