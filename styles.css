@@ -1,6 +1,5 @@
 head {
-    /* Thêm font chữ viết tay mới */
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;600&family=Pacifico&family=Sacramento&display=swap');
+    /* Xóa phần import font chữ viết tay */
 }
 
 body {
@@ -187,8 +186,8 @@ body {
 }
 
 .name-input-container h2 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
     margin-bottom: 30px;
     color: #e74c3c;
 }
@@ -388,8 +387,8 @@ button:active {
 }
 
 .signature-name {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
     color: #e74c3c;
     margin-top: 10px;
 }
@@ -1738,14 +1737,14 @@ button:active {
 
 /* Chữ viết tay cho các tiêu đề */
 h1, h2, h3 {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat', sans-serif;
     text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
 }
 
 /* Hiệu ứng chữ viết tay cho thông điệp */
 .handwritten {
-    font-family: 'Sacramento', cursive;
-    font-size: 1.6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
     line-height: 1.8;
     color: #fff;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
@@ -1753,9 +1752,9 @@ h1, h2, h3 {
 
 /* Hiệu ứng chữ viết tay đặc biệt */
 .special-message {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Montserrat', sans-serif;
     color: #e74c3c;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
     margin: 30px 0;
     text-align: center;
@@ -1797,16 +1796,16 @@ button {
 }
 
 .romantic-quote p {
-    font-family: 'Sacramento', cursive;
-    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
     line-height: 1.6;
     margin: 0;
     color: #fff;
 }
 
 .romantic-quote .author {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     color: #e74c3c;
     margin-top: 20px;
     text-align: right;
