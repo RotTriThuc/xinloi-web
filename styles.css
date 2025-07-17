@@ -1,5 +1,6 @@
 head {
-    /* Xóa phần import font chữ viết tay */
+    /* Thêm lại font chữ viết tay */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;600&display=swap');
 }
 
 body {
@@ -185,9 +186,10 @@ body {
     animation: fadeIn 1s ease;
 }
 
+/* Chữ viết tay cho tiêu đề "Gửi đến em..." */
 .name-input-container h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
     margin-bottom: 30px;
     color: #e74c3c;
 }
