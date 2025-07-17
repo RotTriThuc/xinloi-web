@@ -545,13 +545,13 @@ button:active {
 }
 
 .song-option h3 {
-    color: white;
+    color: #333;
     margin: 0 0 5px;
     font-size: 1.4rem;
 }
 
 .song-option p {
-    color: rgba(255, 255, 255, 0.7);
+    color: #666;
     margin: 0;
     font-size: 1rem;
 }
@@ -580,7 +580,7 @@ button:active {
 
 .scroll-indicator p {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #333;
 }
 
 @keyframes bounce {
@@ -1968,4 +1968,40 @@ h3 {
     font-size: 1.1rem;
     margin-bottom: 30px;
     text-align: center;
+} 
+
+.romantic-quote p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+}
+
+.romantic-quote .author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #ff69b4;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.song-option h3 {
+    color: #333;
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+}
+
+.song-option p {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Hiệu ứng chữ viết tay cho thông điệp */
+.handwritten {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
 } 
