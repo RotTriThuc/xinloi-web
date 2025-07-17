@@ -131,13 +131,21 @@ class MyHeart {
     // Set up promises interaction
     setupPromisesInteraction() {
         const promiseBoxes = document.querySelectorAll('.promise-box');
-        const promiseText = document.getElementById('promise-text');
         const promiseDisplay = document.querySelector('.promise-display');
+        const promiseText = document.getElementById('promise-text');
+        
+        // Elements for promise popup
         const promiseBoxPopup = document.getElementById('promise-box-popup');
         const closePromisePopup = document.querySelector('.close-promise-popup');
         const promiseBoxTitle = document.getElementById('promise-box-title');
         const promiseBoxIcon = document.getElementById('promise-box-icon');
         const promiseBoxText = document.getElementById('promise-box-text');
+
+        // Check if all popup elements exist
+        if (!promiseBoxPopup || !closePromisePopup || !promiseBoxTitle || !promiseBoxIcon || !promiseBoxText) {
+            console.error("Một hoặc nhiều thành phần của promise popup không được tìm thấy. Vui lòng kiểm tra lại HTML.");
+            return; // Stop execution if elements are missing
+        }
         
         // Chi tiết cho từng lời hứa
         const promiseDetails = [
@@ -154,17 +162,17 @@ class MyHeart {
             {
                 title: "Lời Hứa #3",
                 icon: "🎁",
-                text: "Anh hứa sẽ cùng em đi du lịch nhiều nơi, tạo thêm những kỷ niệm đẹp. Chúng ta sẽ cùng nhau khám phá những địa điểm mới, trải nghiệm những điều thú vị và lưu giữ những khoảnh khắc đáng nhớ bên nhau. Mỗi chuyến đi sẽ là một hành trình đưa chúng ta đến gần nhau hơn."
+                text: "Anh hứa sẽ cùng em đi du lịch nhiều nơi, tạo thêm những kỷ niệm đẹp. Anh và em sẽ cùng nhau khám phá những địa điểm mới, trải nghiệm những điều thú vị và lưu giữ những khoảnh khắc đáng nhớ bên nhau. Mỗi chuyến đi sẽ là một hành trình đưa anh với em đến gần nhau hơn."
             },
             {
                 title: "Lời Hứa #4",
                 icon: "💐",
-                text: "Anh hứa sẽ luôn nhớ những ngày kỷ niệm quan trọng của chúng ta. Anh biết mình đã từng quên những ngày đặc biệt này và làm em buồn. Từ giờ, anh sẽ ghi nhớ và chuẩn bị những bất ngờ nhỏ trong những dịp đặc biệt để cho em thấy anh luôn trân trọng mối quan hệ của chúng ta."
+                text: "Anh hứa sẽ luôn nhớ những ngày kỷ niệm quan trọng của chúng ta. Từ giờ, anh sẽ ghi nhớ và chuẩn bị những bất ngờ nhỏ trong những dịp đặc biệt để cho em thấy anh luôn trân trọng mối quan hệ của bọn mình."
             },
             {
                 title: "Lời Hứa #5",
                 icon: "💍",
-                text: "Anh hứa sẽ trở thành phiên bản tốt nhất của mình, vì em và vì chúng ta. Anh sẽ không ngừng học hỏi, phát triển bản thân để xứng đáng với tình yêu của em. Anh muốn cùng em xây dựng một tương lai tươi sáng, nơi chúng ta có thể cùng nhau vun đắp hạnh phúc mỗi ngày."
+                text: "Anh hứa sẽ trở thành phiên bản tốt nhất của mình, vì em và vì chúng ta, không phải vì ai khác. Anh sẽ không ngừng học hỏi, phát triển bản thân để xứng đáng với em. Anh muốn cùng em xây dựng một tương lai tươi sáng, nơi bọn mình có thể cùng nhau vun đắp hạnh phúc mỗi ngày."
             }
         ];
         
@@ -195,8 +203,6 @@ class MyHeart {
                     promiseBoxIcon.textContent = promiseDetails[index].icon;
                     promiseBoxText.textContent = promiseDetails[index].text;
                     promiseBoxPopup.style.display = 'block';
-                    
-                    // Disable scroll khi popup hiển thị
                     document.body.style.overflow = 'hidden';
                 }
                 
@@ -208,24 +214,18 @@ class MyHeart {
         });
         
         // Xử lý đóng popup
-        if (closePromisePopup) {
-            closePromisePopup.addEventListener('click', () => {
-                promiseBoxPopup.style.display = 'none';
-                // Enable scroll lại khi đóng popup
-                document.body.style.overflow = 'auto';
-            });
-        }
+        closePromisePopup.addEventListener('click', () => {
+            promiseBoxPopup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
         
         // Đóng popup khi click bên ngoài
-        if (promiseBoxPopup) {
-            promiseBoxPopup.addEventListener('click', (event) => {
-                if (event.target === promiseBoxPopup) {
-                    promiseBoxPopup.style.display = 'none';
-                    // Enable scroll lại khi đóng popup
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
+        promiseBoxPopup.addEventListener('click', (event) => {
+            if (event.target === promiseBoxPopup) {
+                promiseBoxPopup.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
         
         // Thêm phím tắt Escape để đóng popup
         document.addEventListener('keydown', (event) => {
