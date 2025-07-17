@@ -493,17 +493,7 @@ button:active {
     border: 2px solid rgba(231, 76, 60, 0.7);
 }
 
-.song-option:hover::after {
-    content: '❤ Chọn';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
-    background-color: rgba(231, 76, 60, 0.7);
-    color: white;
-    font-weight: bold;
-}
+/* Xóa phần hover hiển thị nút "Chọn" */
 
 .song-image {
     width: 150px;
@@ -763,6 +753,14 @@ button:active {
         width: 100%;
         max-width: 250px;
         margin-bottom: 20px;
+        /* Thêm hiệu ứng nhấp nháy nhẹ để người dùng biết đây là phần tương tác */
+        animation: subtle-pulse 2s infinite;
+    }
+    
+    @keyframes subtle-pulse {
+        0% { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+        50% { box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
+        100% { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
     }
     
     /* Timeline section */
