@@ -991,7 +991,7 @@ button:active {
 }
 
 .section-desc {
-    color: rgba(255, 255, 255, 0.7);
+    color: #333;
     font-style: italic;
     margin-bottom: 40px;
     font-size: 1.1rem;
@@ -1067,12 +1067,12 @@ button:active {
 
 .memory-placeholder p {
     margin: 5px 0 0;
-    color: rgba(255, 255, 255, 0.8);
+    color: #333;
 }
 
 .memory-caption {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #333;
 }
 
 /* Poem Section */
