@@ -661,18 +661,18 @@ button:active {
 .timeline-content {
     position: absolute;
     width: 40%;
-    background-color: rgba(35, 35, 50, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 105, 180, 0.2);
     transition: all 0.3s ease;
     top: -50px;
 }
 
 .timeline-content:hover {
-    background-color: rgba(50, 50, 70, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     transform: translateY(-5px);
 }
 
@@ -697,6 +697,7 @@ button:active {
     line-height: 1.6;
     margin-bottom: 0;
     font-size: 1rem;
+    color: #333;
 }
 
 /* Responsive design for mobile */
