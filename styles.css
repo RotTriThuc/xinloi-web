@@ -245,6 +245,7 @@ body {
     transform: translateY(-5px);
 }
 
+/* Chữ viết tay cho tiêu đề chính */
 h1 {
     font-family: 'Dancing Script', cursive;
     color: #e74c3c;
